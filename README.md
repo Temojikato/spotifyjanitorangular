@@ -70,6 +70,10 @@ This Angular version of Spotify Janitor leverages the following:
 4.  **Animations and Overlay**: Angular Material dialogs and toasts (snack-bars) needed stubs in unit tests to avoid NullInjectorErrors. We used global stubs or special test configurations to handle this elegantly.
     
 
+  </br>
+  </br>
+  </br>
+  </br>
 Dutch Version
 -------------
 
