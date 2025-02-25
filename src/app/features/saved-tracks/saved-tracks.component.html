@@ -1,0 +1,76 @@
+<div class="saved-tracks-container" 
+     appPullToRefresh 
+     (refresh)="onRefresh()" 
+     (pullProgress)="pullProgress = $event">
+  <div class="refresh-indicator" [style.opacity]="pullProgress">
+    <mat-icon>refresh</mat-icon>
+  </div>
+  <div class="header" [class.mobile]="isMobile">
+    <ng-container *ngIf="!isMobile; else mobileHeader">
+      <div class="header-row-desktop">
+        <h2 class="page-title">Saved Tracks</h2>
+        <div class="spotify-search-field-container">
+          <mat-form-field appearance="outline" class="search-field">
+            <mat-label>Search by title or artist</mat-label>
+            <input matInput [(ngModel)]="searchQuery" (ngModelChange)="onSearchQueryChange($event)" />
+          </mat-form-field>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #mobileHeader>
+      <h2 class="page-title">Saved Tracks</h2>
+      <div class="spotify-search-field-container">
+        <mat-form-field appearance="outline" class="search-field">
+          <mat-label>Search by title or artist</mat-label>
+          <input matInput [(ngModel)]="searchQuery" (ngModelChange)="onSearchQueryChange($event)" />
+        </mat-form-field>
+      </div>
+    </ng-template>
+  </div>
+  <div *ngIf="refreshing" class="loading-container">
+    <mat-spinner></mat-spinner>
+  </div>
+  <div *ngIf="!refreshing">
+    <ng-container *ngIf="isMobile; else desktopView">
+      <app-mobile-track-item 
+        *ngFor="let track of filteredTracks" 
+        [id]="track.id" 
+        [title]="track.title"
+        [artist]="track.artist" 
+        [albumArt]="track.albumArt" 
+        (remove)="handleRemove($event)">
+      </app-mobile-track-item>
+    </ng-container>
+    <ng-template #desktopView>
+      <table mat-table class="tracks-table">
+        <thead>
+          <tr>
+            <th class="swipe-header"></th>
+            <th class="saved-tracks-th">Title</th>
+            <th class="saved-tracks-th">Album</th>
+            <th class="saved-tracks-th">Date Added</th>
+            <th class="duration-header saved-tracks-th">
+              <mat-icon>access_time</mat-icon>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let track of filteredTracks" 
+              appTableTrackItem 
+              [id]="track.id" 
+              [title]="track.title"
+              [artist]="track.artist" 
+              [album]="track.album" 
+              [albumArt]="track.albumArt" 
+              [addedAt]="track.addedAt"
+              [duration]="track.duration" 
+              (remove)="handleRemove($event)">
+          </tr>
+        </tbody>
+      </table>
+    </ng-template>
+  </div>
+  <button mat-fab class="fab-add" (click)="openAddSongModal()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

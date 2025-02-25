@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="delete-overlay" *ngIf="swipe.swipeDelta > 20" [style.width.px]="swipe.swipeDelta">
+    <mat-icon>delete</mat-icon>
+  </div>
+  <div class="moving-container" appSwipeToRemove (swipeRemove)="remove.emit(id)" #swipe="appSwipeToRemove">
+    <div class="track-item" [ngStyle]="{'transform': 'translateX(' + swipe.swipeDelta + 'px)'}">
+      <img [src]="albumArt" alt="{{ title }}" class="album-art" />
+      <div class="track-info">
+        <h6>{{ title }}</h6>
+        <p>{{ artist }}</p>
+      </div>
+    </div>
+  </div>
+</div>

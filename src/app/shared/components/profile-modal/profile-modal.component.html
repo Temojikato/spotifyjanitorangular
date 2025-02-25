@@ -1,0 +1,35 @@
+<div mat-dialog-title class="dialog-title">
+  <span class="profile-name">{{ profile?.display_name }}</span>
+  <button mat-button class="logout-button" (click)="logout()">Logout</button>
+</div>
+<mat-dialog-content class="dialog-content">
+  <div class="profile-image-container" *ngIf="profileImageUrl">
+    <img [src]="profileImageUrl" alt="{{ profile?.display_name }}" class="profile-image">
+  </div>
+  <div class="profile-details">
+    <div class="detail-row">
+      <span class="detail-label">Email:</span>
+      <span class="detail-value">{{ profile?.email }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Status:</span>
+      <span class="detail-value">{{ profile?.product }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Country:</span>
+      <span class="detail-value">{{ profile?.country }}</span>
+    </div>
+    <div class="detail-row">
+      <span class="detail-label">Followers:</span>
+      <span class="detail-value">{{ profile?.followers?.total }}</span>
+    </div>
+  </div>
+  <div class="button-container">
+    <a mat-raised-button color="accent" [href]="profile?.external_urls?.spotify" target="_blank" rel="noopener">
+      View on Spotify
+    </a>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end" class="dialog-actions">
+  <button mat-button class="close-button" (click)="close()">Close</button>
+</mat-dialog-actions>

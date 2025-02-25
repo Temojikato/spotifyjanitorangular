@@ -1,0 +1,138 @@
+:host {
+  display: block;
+  background-color: #121212 !important;
+  color: #fff !important;
+  --mdc-theme-primary: #1ed760;
+}
+:host ::ng-deep .mat-mdc-dialog-title,
+:host ::ng-deep .mat-dialog-title {
+  color: #fff !important;
+}
+mat-dialog-content {
+  padding: 1rem !important;
+  margin-top: 16px;
+}
+.search-container {
+  display: flex;
+  margin-bottom: 1rem;
+  width: 100%;
+  .search-field {
+    border-radius: 4px;
+    padding: 1rem;
+    overflow: hidden;
+  }
+  .search-field-wide {
+    width: 50rem;
+  }
+  .search-button {
+    background-color: #1ed760;
+    color: #fff;
+    align-self: center;
+  }
+}
+:host ::ng-deep .add-button {
+  background-color: var(--mdc-theme-primary) !important;
+  color: #fff !important;
+}
+.add-button {
+  padding: 0;
+  box-sizing: border-box;
+  min-width: 7rem;
+  height: 2.25rem;
+}
+.btn-container {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  align-items: center;
+  justify-items: stretch;
+  width: 100%;
+  height: 100%;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+}
+.btn-container .btn-text {
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.btn-container .btn-overlay {
+  grid-column: 2;
+  border-left: 0.125rem solid currentColor;
+  padding-left: 0.25rem;
+  box-sizing: border-box;
+}
+.btn-container .btn-overlay mat-icon {
+  font-size: 0.8rem !important;
+  line-height: 1;
+  top: 0.5rem;
+}
+.add-button.add-state {
+  background: transparent !important;
+  border: 0.125rem solid #1ed760 !important;
+  color: #1ed760 !important;
+}
+.add-button.add-state .btn-container .btn-overlay {
+  border-color: #1ed760;
+}
+.add-button.saved-state {
+  background-color: #1ed760 !important;
+  border: 0.125rem solid #1ed760 !important;
+  color: #fff !important;
+}
+.add-button.saved-state .btn-container .btn-overlay {
+  border-color: #121212;
+}
+.track-item {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  margin-bottom: 8px;
+  background-color: #1a1a1a;
+  border-radius: 4px;
+  gap: 16px;
+  .album-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+  .track-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+    .track-title {
+      font-size: 1rem;
+      color: #fff;
+      font-weight: bold;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .track-artist {
+      font-size: 0.875rem;
+      color: #b3b3b3;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  .album-name {
+    flex: 1;
+    font-size: 0.875rem;
+    color: #b3b3b3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .track-duration {
+    flex: 0 0 auto;
+    font-size: 0.875rem;
+    color: #b3b3b3;
+  }
+}

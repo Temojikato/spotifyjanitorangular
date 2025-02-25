@@ -1,0 +1,38 @@
+<td class="album-cell">
+  <div class="delete-overlay" 
+       [style.width.px]="swipeDelta > 20 ? swipeDelta : 0" 
+       [class.visible]="swipeDelta > 20">
+    <mat-icon>delete</mat-icon>
+  </div>
+  <div class="cell-content" 
+       [ngStyle]="{'transform': 'translateX(' + swipeDelta + 'px)'}">
+    <img [src]="albumArt" [alt]="title" />
+  </div>
+</td>
+<td class="cell">
+  <div class="cell-content" 
+       [ngStyle]="{'transform': 'translateX(' + swipeDelta + 'px)'}">
+    <div class="track-info">
+      <p class="title">{{ title }}</p>
+      <p class="artist">{{ artist }}</p>
+    </div>
+  </div>
+</td>
+<td class="cell">
+  <div class="cell-content" 
+       [ngStyle]="{'transform': 'translateX(' + swipeDelta + 'px)'}">
+    <p>{{ album }}</p>
+  </div>
+</td>
+<td class="cell">
+  <div class="cell-content" 
+       [ngStyle]="{'transform': 'translateX(' + swipeDelta + 'px)'}">
+    <p>{{ addedAt }}</p>
+  </div>
+</td>
+<td class="cell duration-cell">
+  <div class="cell-content" 
+       [ngStyle]="{'transform': 'translateX(' + swipeDelta + 'px)'}">
+    <p>{{ duration }}</p>
+  </div>
+</td>

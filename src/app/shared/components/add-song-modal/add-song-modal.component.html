@@ -1,0 +1,53 @@
+<h2 mat-dialog-title>Add a Song</h2>
+<mat-dialog-content class="dialog-content">
+  <div class="search-container">
+    <div class="spotify-search-field-container" [class.mobile]="isMobile">
+      <ng-container *ngIf="!isMobile; else mobileSearch">
+        <mat-form-field appearance="outline" class="search-field search-field-wide">
+          <mat-label>Search for a song</mat-label>
+          <input matInput [(ngModel)]="query" (keyup.enter)="handleSearch()" />
+        </mat-form-field>
+      </ng-container>
+      <ng-template #mobileSearch>
+        <mat-form-field appearance="outline" class="search-field">
+          <mat-label>Search for a song</mat-label>
+          <input matInput [(ngModel)]="query" (keyup.enter)="handleSearch()" />
+        </mat-form-field>
+      </ng-template>
+    </div>
+    <button mat-raised-button color="accent" class="search-button" (click)="handleSearch()">
+      Search
+    </button>
+  </div>
+  <mat-list>
+    <div *ngFor="let track of results" class="track-item">
+      <img [src]="track.albumArt" alt="{{ track.title }}" class="album-image" />
+      <div class="track-info">
+        <div class="track-title">{{ track.title }}</div>
+        <div class="track-artist">{{ track.artist }}</div>
+      </div>
+      <ng-container *ngIf="!isMobile">
+        <div class="album-name">{{ track.album }}</div>
+        <div class="track-duration">{{ track.duration }}</div>
+      </ng-container>
+      <button mat-raised-button 
+              [ngClass]="data.existingTrackIds.includes(track.id) ? 'saved-state' : 'add-state'"
+              class="add-button" 
+              (click)="data.existingTrackIds.includes(track.id) ? handleRemove(track) : handleAdd(track)">
+        <div class="btn-container">
+          <span class="btn-text">
+            {{ data.existingTrackIds.includes(track.id) ? 'Saved' : 'Add' }}
+          </span>
+          <span class="btn-overlay">
+            <mat-icon>
+              {{ data.existingTrackIds.includes(track.id) ? 'close' : 'add' }}
+            </mat-icon>
+          </span>
+        </div>
+      </button>
+    </div>
+  </mat-list>
+</mat-dialog-content>
+<mat-dialog-actions align="end" class="dialog-actions">
+  <button mat-button (click)="onClose()">Close</button>
+</mat-dialog-actions>

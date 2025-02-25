@@ -1,0 +1,12 @@
+<mat-toolbar color="primary" class="header-toolbar header-container">
+  <button mat-icon-button *ngIf="showBackArrow" (click)="handleBack()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <div class="logo-container" (click)="handleTitleClick()">
+    <img src="assets/Spotify.png" alt="Spotify Logo" class="logo-image" />
+    <span class="title">Janitor</span>
+  </div>
+  <button class="avatar-button" *ngIf="isLoggedIn && profileLoaded" (click)="openProfileModal()">
+    <img [src]="profilePicUrl" alt="Profile" class="avatar-image" />
+  </button>
+</mat-toolbar>

@@ -1,0 +1,9 @@
+.undo-toast-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  .toast-message {
+    margin-right: 16px;
+  }
+}

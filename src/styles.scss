@@ -1,0 +1,37 @@
+@use '@angular/material' as mat;
+
+.spotify-search-field-container {
+  @include mat.form-field-overrides((
+    outlined-focus-label-text-color: #1ed760,
+    outlined-focus-outline-color: #1ed760,
+    outlined-caret-color: #1ed760,
+    outlined-hover-outline-color: #fff,
+    outlined-hover-label-text-color: #fff,
+    outlined-input-text-color: #fff
+  ));
+  @include mat.snack-bar-overrides((
+    container-color: #333,
+    supporting-text-color: #fff,
+    button-color: #fff
+  ));
+}
+.cdk-overlay-backdrop {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.mat-mdc-form-field-subscript-wrapper {
+  height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+

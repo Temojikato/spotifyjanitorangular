@@ -1,0 +1,112 @@
+.saved-tracks-container {
+  padding: 2rem;
+  min-height: 85vh;
+  position: relative;
+  overflow-y: auto;
+  background-color: #121212;
+  margin: -1rem;
+  color: #ffffff;
+  .header {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    .page-title {
+      margin: 0;
+      font-weight: bold;
+      font-size: 2rem;
+      color: #ffffff;
+    }
+    .search-field {
+      width: 20rem;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      .mat-form-field-flex {
+        background: transparent;
+      }
+    }
+  }
+  .refresh-indicator {
+    position: absolute;
+    left: 50%;
+    color: #1ed760;
+    transition: opacity 0.2s ease;
+  }
+  @media (max-width: 600px) {
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+      .search-field {
+        margin-top: 0.5rem;
+      }
+    }
+
+    .refresh-indicator {
+      top:0.3rem;
+    }
+  }
+  .loading-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  .tracks-table {
+    width: 100%;
+    margin-top: 1rem;
+    color: #ffffff;
+    border-collapse: separate !important;
+    border-spacing: 0 8px !important;
+    thead tr th {
+      padding: 0.75rem;
+      text-align: left;
+      color: #b3b3b3;
+      font-weight: bold;
+    }
+    tbody tr td {
+      padding: 0.75rem;
+      border-bottom: 1px solid #282828;
+    }
+  }
+  .fab-add {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: #1ed760;
+    z-index: 7;
+  }
+}
+.header-row-desktop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.saved-tracks-th {
+  position: relative;
+  padding-left: 1.4rem !important;
+}
+.saved-tracks-th::after {
+  content: "";
+  position: absolute;
+  left: -4.2rem;
+  width: calc(100% + 4.2rem);
+  bottom: 0;
+  border-bottom: 1px solid #282828;
+}
+[apptabletrackitem] {
+  background-image: linear-gradient(to bottom right, rgba(18,18,18,0), #121212) !important;
+}
+.saved-tracks-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% + 2rem);
+  height: calc(100% + 2rem);
+  margin: -2rem;
+  background: linear-gradient(to bottom right, transparent 60%, rgba(30,215,96,0.15) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
